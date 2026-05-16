@@ -1,0 +1,46 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: notification-service
+  
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME:test@gmail.com}
+    password: ${EMAIL_PASSWORD:password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    default-encoding: UTF-8
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.dto"
+        spring.json.type.mapping: "userEvent:com.example.dto.UserKafkaEventDto"
+    topic:
+      user-events: user-events-topic
+  
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+  
+logging:
+  level:
+    com.example: DEBUG
+    org.springframework.kafka: INFO

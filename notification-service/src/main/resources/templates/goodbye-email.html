@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш аккаунт удален</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #f44336;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            border: 1px solid #ddd;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ваш аккаунт удален</h1>
+    </div>
+    <div class="content">
+        <p>Здравствуйте, <span th:text="${userName}">Пользователь</span>!</p>
+        <p th:text="${goodbyeMessage}">Ваш аккаунт был удален.</p>
+        <p>Мы сожалеем, что вы приняли решение удалить свой аккаунт. Хотим напомнить, что:</p>
+        <ul>
+            <li>Все ваши данные были удалены из нашей системы</li>
+            <li>Вы больше не будете получать уведомления от нас</li>
+            <li>Восстановление аккаунта невозможно</li>
+        </ul>
+        <p>Если это решение было принято по ошибке или у вас есть вопросы, пожалуйста, свяжитесь с нашей службой поддержки.</p>
+        <p>Спасибо, что были с нами!<br>Команда нашего сайта</p>
+    </div>
+    <div class="footer">
+        <p>Это письмо отправлено автоматически. Пожалуйста, не отвечайте на него.</p>
+    </div>
+</body>
+</html>
